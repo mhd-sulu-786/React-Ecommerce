@@ -31,8 +31,7 @@ const Product = () => {
     </div>
   );
 
-  const location = 'Current location';
-  const paymentMethod = 'Cash on Delivery only';
+
 
   const ordered = (title) => {
     alert(`${title} has been ordered`);
@@ -48,11 +47,13 @@ const Product = () => {
             <Card.Body>
               <Card.Title>{product.title}</Card.Title>
               <Card.Text>{product.description}</Card.Text>
-              <div>
-                <strong>Payment Method:</strong> {paymentMethod}
-              </div>
-              <div>
-                <strong>Location:</strong> {location}
+              <div className='d-flex flex-column'>
+              
+                
+                    <th>Payment Method:</th><td>Cash on Delivery</td>
+                  
+                    <th>Loction:</th><td>kongad po plakkad kerala 678631</td>
+                  
               </div>
               <Link >
                 <Button variant="success" className="w-100" onClick={() => ordered(product.title)}>
