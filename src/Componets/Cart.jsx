@@ -8,7 +8,8 @@ import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
 import { NavLink } from 'react-router-dom';
 import checkmark from './checkmark.png';
-
+import PaidIcon from '@mui/icons-material/Paid';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 const Cart = ({ cart, update }) => {
     const [carts, setCarts] = useState({ });
     const [orders, setOrders] = useState(false);
@@ -128,8 +129,8 @@ const Cart = ({ cart, update }) => {
                 <Container  className='d-flex flex-column align-items-center justfy-content-center' >
                     {resultHtml(carts.length, carts.map(product => product.title), carts.map(product => product.price))}
                     
-                     <th>kongad po plakkad kerala 678631</th>
-                     <th>Cash on Delivery</th>
+                     <th><LocationOnIcon/>kongad po plakkad kerala 678631</th>
+                     <th><PaidIcon/>Cash on Delivery</th>
                      
                     
                     <NavLink  className={'w-100'} >

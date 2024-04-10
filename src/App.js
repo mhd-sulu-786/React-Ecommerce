@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import Home from './Componets/Home';
 import Navbar from './Componets/Navbar';
 import ProductList from './Componets/Products';
 import Cart from './Componets/Cart';
@@ -10,7 +9,7 @@ import Product from './Componets/Product';
 
 function App() {
   const [cart, setCart] = useState([]); 
-
+ const [mod,setmod]=useState(true);
 
   const handleAddToCart = (product) => {
     if (cart.find(item => item.id === product.id)) {
@@ -30,18 +29,22 @@ function App() {
   function updater(products) {
     setCart(products)
   }
+  const backgroundcolor = (value)=>{
+    setmod(value);
+
+  }
 
   return (
-    <div>
-      <Navbar cartlength={cart.length} />
+    <div style={{backgroundColor:mod?'black':'white'}}>
+      <Navbar cartlength={cart.length} background={backgroundcolor} />
       <Routes>
-        <Route path="/" element={<Home />} />
-<Route path="/products" element={<ProductList handleAdd={handleAddToCart} />} />
-<Route path="/products/:id" element={<Product/>} />
+        <Route path="/" element={<ProductList handleAdd={handleAddToCart} mod={mod} />} />
+<Route path="/products" element={<ProductList handleAdd={handleAddToCart} mod={mod}  />} />
+<Route path="/products/:id" element={<Product mod={mod}  />} />
 
-        <Route path="/cart" element={<Cart cart={cart} update={updater} />} />
-        <Route path="/register" element={<Cart />} />
-        <Route path="/login" element={<Cart />} />
+        <Route path="/cart" element={<Cart cart={cart} update={updater} mod={mod}  />} />
+        <Route path="/register" element={<Cart mod={mod}  />} />
+        <Route path="/login" element={<Cart mod={mod}  />} />
       </Routes>
     </div>
   );

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link, NavLink } from 'react-router-dom';
 import { Card, Button, Col, Container, Row, Image } from 'react-bootstrap';
 import checkmark from './checkmark.png'
-
+import PaidIcon from '@mui/icons-material/Paid';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
@@ -50,9 +51,9 @@ const Product = () => {
               <div className='d-flex flex-column'>
               
                 
-                    <th>Payment Method:</th><td>Cash on Delivery</td>
+                    <th><PaidIcon/>Payment Method:</th><td>Cash on Delivery</td>
                   
-                    <th>Loction:</th><td>kongad po plakkad kerala 678631</td>
+                    <th><LocationOnIcon/>Loction:</th><td>kongad po plakkad kerala 678631</td>
                   
               </div>
               <Link >
