@@ -10,7 +10,7 @@ import { NavLink } from 'react-router-dom';
 import checkmark from './checkmark.png';
 import PaidIcon from '@mui/icons-material/Paid';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-const Cart = ({ cart, update }) => {
+const Cart = ({ cart, update,mod }) => {
     const [carts, setCarts] = useState({ });
     const [orders, setOrders] = useState(false);
     const [ordersuccess, setOrderSuccess] = useState(false);
@@ -27,7 +27,7 @@ const Cart = ({ cart, update }) => {
     const resultHtml = (count, names, prices) => {
         let total = 0;
         return (
-            <table style={{ border: '1px solid #ccc', borderCollapse: 'collapse', width: '100%' }}>
+            <table style={{ border: '1px solid #ccc', borderCollapse: 'collapse', width: '100%', background: mod ? 'black' : 'white', color: mod ? 'white' : 'black' }}>
                 <thead>
                     <tr>
                         <th style={{ border: '1px solid #ccc', padding: '8px', textAlign: 'left' }}>Items</th>
@@ -76,8 +76,8 @@ const Cart = ({ cart, update }) => {
                         <Image src={checkmark} alt="checkmark" />
                     </center>
                     <Col xs={9}>
-                        <h2>Your order is placed</h2>
-                        <p>We will contact you as soon as possible</p>
+                        <h2 style={{color:mod?'white':'black'}}>Your order is placed</h2>
+                        <p style={{color:mod?'white':'black'}}>We will contact you as soon as possible</p>
                         <NavLink to="/products">
                             <Button variant="primary" onClick={()=>clear()}>Continue Shopping</Button>
                         </NavLink>
@@ -88,7 +88,8 @@ const Cart = ({ cart, update }) => {
     }
 
     return (
-        <div id='carts'>
+        <div id='carts' style={{
+                    backgroundColor: mod ? 'black' : 'white', Color: mod ? 'white' : 'black',paddingTop:'100px'}}>
             {ordersuccess ? <Ordered /> : !orders && carts ? (
                 <Row className='col d-flex container-fluid justify-content-center mx-3 my-3'>
                     {carts.length > 0 ? (
@@ -129,12 +130,12 @@ const Cart = ({ cart, update }) => {
                 <Container  className='d-flex flex-column align-items-center justfy-content-center' >
                     {resultHtml(carts.length, carts.map(product => product.title), carts.map(product => product.price))}
                     
-                     <th><LocationOnIcon/>kongad po plakkad kerala 678631</th>
-                     <th><PaidIcon/>Cash on Delivery</th>
+                     <th style={{color:mod?'white':'black'}}><LocationOnIcon/>kongad po plakkad kerala 678631</th>
+                     <th style={{color:mod?'white':'black'}}><PaidIcon/>Cash on Delivery</th>
                      
                     
                     <NavLink  className={'w-100'} >
-                        <Button className=' w-100 btn-success text-white' onClick={() => placeOrder()} variant="outline-dark">Place Order's</Button>
+                        <Button className=' w-100 btn-success text-white mb-3' onClick={() => placeOrder()} variant="outline-dark">Place Order's</Button>
                     </NavLink>
                 </Container>
                </Col>
@@ -142,7 +143,7 @@ const Cart = ({ cart, update }) => {
             <Container className='container-fluid sticky-bottom'>
                 {carts.length > 0 && !orders && (
                     <NavLink className={'w-100'}>
-                        <Button className='w-100 btn-success text-white' onClick={() => checkout()} variant="outline-dark">Checkout Now</Button>
+                        <Button className='w-100 btn-success text-white mb-3' onClick={() => checkout()} variant="outline-dark">Checkout Now</Button>
                     </NavLink>
                 )}
             </Container>

@@ -3,8 +3,8 @@ import Card from 'react-bootstrap/Card';
 
 const Home = () => {
     return (
-      
-             <div className='hero' id='action1'>
+
+        <div className='hero' id='action1'>
             <Card className="bg-dark text-white border-0  " id='action1'>
                 <Card.Img src="https://www.hdwallpapers.in/download/red_nike_shoe_in_black_background_4k_hd_nike-HD.jpg" alt="bg-shoe" height={'550px'} />
                 <Card.ImgOverlay className='card-img-overplay  d-flex flex-column justify-content-center '>
@@ -13,8 +13,8 @@ const Home = () => {
                 </Card.ImgOverlay>
             </Card>
         </div>
-       
-       
+
+
     );
 };
 
