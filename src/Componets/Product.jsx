@@ -4,6 +4,7 @@ import { Card, Button, Col, Container, Row, Image } from 'react-bootstrap';
 import checkmark from './checkmark.png'
 import PaidIcon from '@mui/icons-material/Paid';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+
 const Product = ({mod}) => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
@@ -35,8 +36,8 @@ const Product = ({mod}) => {
 
 
   const ordered = (title) => {
-    alert(`${title} has been ordered`);
     setProduct(null);
+    console.log('ordered'+title);
   };
 
   const ShowProduct = () => (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Button, Col, Row } from 'react-bootstrap';
-
+import Swal from 'sweetalert2'
 const Login = ({mod}) => {
   return (
     <Row className="justify-content-center">
@@ -17,7 +17,7 @@ const Login = ({mod}) => {
             <Form.Control type="password" placeholder="Password" />
           </Form.Group>
 
-          <Button variant="primary" type="submit" className="w-100">
+          <Button onClick={() =>  Swal.fire(' it\'s not Currently working','Sorry','warning')} variant="primary" type="submit" className="w-100">
             Login
           </Button>
         </Form>

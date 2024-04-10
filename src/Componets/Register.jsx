@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Button, Col, Row } from 'react-bootstrap';
+import Swal from 'sweetalert2'
 
 const Register = ({mod}) => {
   return (
@@ -31,7 +32,7 @@ const Register = ({mod}) => {
             <Form.Check type="checkbox" label="Subscribe to our newsletter" />
           </Form.Group>
 
-          <Button variant="primary" type="submit" className="w-100">
+          <Button onClick={() =>  Swal.fire(' it\'s not Currently working','Sorry','warning')} variant="primary" type="submit" className="w-100">
             Register
           </Button>
         </Form>

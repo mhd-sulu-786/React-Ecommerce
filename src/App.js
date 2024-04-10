@@ -8,42 +8,42 @@ import Cart from './Componets/Cart';
 import Product from './Componets/Product';
 import Register from './Componets/Register';
 import Login from './Componets/Login';
+import Swal from 'sweetalert2';
 
 function App() {
   const [cart, setCart] = useState([]);
-  const [mod, setmod] = useState(true);
+  const [mod, setMod] = useState(true);
 
   const handleAddToCart = (product) => {
     if (cart.find(item => item.id === product.id)) {
-      alert('Product already in cart');
+      Swal.fire('Product already in cart','','warning');
       return;
     }
+
     setCart([...cart, product]);
 
-    alert('Successfully added to cart');
-  }
-
+    Swal.fire('Successfully ','added to cart','success');
+  };
 
   useEffect(() => {
     console.log("Updated Cart:", cart);
-
   }, [cart]);
-  function updater(products) {
-    setCart(products)
-  }
-  const backgroundcolor = (value) => {
-    setmod(value);
 
-  }
+  const updater = (products) => {
+    setCart(products);
+  };
+
+  const backgroundColor = (value) => {
+    setMod(value);
+  };
 
   return (
     <div className='App' style={{ backgroundColor: mod ? 'black' : 'white' }}>
-      <Navbar cartlength={cart.length} background={backgroundcolor} />
+      <Navbar cartlength={cart.length} background={backgroundColor} />
       <Routes >
         <Route path="/" element={<ProductList handleAdd={handleAddToCart} mod={mod} />} />
         <Route path="/products" element={<ProductList handleAdd={handleAddToCart} mod={mod} />} />
         <Route path="/products/:id" element={<Product mod={mod} />} />
-
         <Route path="/cart" element={<Cart cart={cart} update={updater} mod={mod} />} />
         <Route path="/register" element={<Register mod={mod} />} />
         <Route path="/login" element={<Login mod={mod} />} />
