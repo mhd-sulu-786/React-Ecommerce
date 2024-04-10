@@ -6,6 +6,8 @@ import Navbar from './Componets/Navbar';
 import ProductList from './Componets/Products';
 import Cart from './Componets/Cart';
 import Product from './Componets/Product';
+import Register from './Componets/Register';
+import Login from './Componets/Login';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -43,8 +45,8 @@ function App() {
         <Route path="/products/:id" element={<Product mod={mod} />} />
 
         <Route path="/cart" element={<Cart cart={cart} update={updater} mod={mod} />} />
-        <Route path="/register" element={<Cart mod={mod} />} />
-        <Route path="/login" element={<Cart mod={mod} />} />
+        <Route path="/register" element={<Register mod={mod} />} />
+        <Route path="/login" element={<Login mod={mod} />} />
       </Routes>
     </div>
   );
